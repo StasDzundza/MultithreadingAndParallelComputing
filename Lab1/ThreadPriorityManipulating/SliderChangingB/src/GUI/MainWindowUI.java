@@ -52,7 +52,8 @@ public class MainWindowUI extends JFrame {
                 mySlider.setValue(90);
             };
             t1 = new Thread(new SliderChanger(slider, functionIncrease), "Thread1");
-            t1.setPriority(10);
+            t1.setPriority(Thread.MAX_PRIORITY);
+            t1.setDaemon(true);
             t1.start();
         });
         start2.addActionListener((ActionEvent)->{
@@ -60,7 +61,8 @@ public class MainWindowUI extends JFrame {
                 mySlider.setValue(10);
             };
             t2 = new Thread(new SliderChanger(slider, functionDecrease), "Thread2");
-            t2.setPriority(10);
+            t2.setPriority(Thread.MAX_PRIORITY);
+            t2.setDaemon(true);
             t2.start();
         });
 

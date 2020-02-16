@@ -59,8 +59,10 @@ public class MainWindowUI extends JFrame {
             ChangeFunction functionDecrease = (mySlider)->{mySlider.setValue(mySlider.getValue()-1);};
             t1 = new Thread(new SliderChanger(slider,functionIncrease),"Thread1");
             t1.setPriority(1);
+            t1.setDaemon(true);
             t2 = new Thread(new SliderChanger(slider,functionDecrease),"Thread2");
             t2.setPriority(9);
+            t2.setDaemon(true);
             t1.start();
             t2.start();
         });

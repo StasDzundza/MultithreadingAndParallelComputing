@@ -13,6 +13,7 @@ public class Challenge extends RecursiveTask<Integer> {
 
     @Override
     protected Integer compute() {
+        System.out.println(Thread.currentThread().getName());
         if (right - left < 3) {
             return letsBattle(left, left+1);
         } else {
