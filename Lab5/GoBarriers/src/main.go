@@ -11,6 +11,7 @@ type CyclicBarrier struct {
 	count      int
 	parties    int
 	trip       *sync.Cond
+
 }
 
 func (b *CyclicBarrier) nextGeneration() {
@@ -20,6 +21,7 @@ func (b *CyclicBarrier) nextGeneration() {
 	// set up next generation
 	b.generation++
 }
+
 
 func (b *CyclicBarrier) Await() {
 	b.trip.L.Lock()
